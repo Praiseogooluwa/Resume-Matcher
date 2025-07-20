@@ -10,7 +10,7 @@ This project was built with **Vite + React + TypeScript**, styled using **Tailwi
 
 ## 🚀 Live Demo
 
-🌐 Frontend: [https://your-vercel-link.vercel.app](https://your-vercel-link.vercel.app)  
+🌐 Frontend: ([https://your-vercel-link.vercel.app](https://job-matcher-rose.vercel.app/))  
 🔗 Backend API (Render): [https://your-render-api-url.onrender.com](https://your-render-api-url.onrender.com)
 
 ---
@@ -87,7 +87,7 @@ Matcher/
 
 ``bash
 # Clone the repository
-git clone <YOUR_GIT_URL>
+git clone https://github.com/Praiseogooluwa/Resume-Matcher
 
 # Navigate to frontend folder
 cd Matcher/frontend
@@ -123,6 +123,9 @@ Frontend is deployed on Vercel
 Backend API is deployed on Render
 
 Both services are connected seamlessly so that job search requests from the frontend go through your custom backend, which in turn queries the JSearch API.
+
+<img width="2595" height="1137" alt="App_structure" src="https://github.com/user-attachments/assets/5ad6a27a-9b08-43bb-881a-3bee84bf0d4b" />
+
 
 📬 Contact / Credits
 Built with ❤️ by Isaiah Ogooluwa Bakare
