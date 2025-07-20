@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 271 81% 56%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 271 91% 65%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 271 81% 56%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(271 81% 56%), hsl(271 91% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(212 100% 50%), hsl(271 81% 56%));
+    --gradient-accent: linear-gradient(135deg, hsl(271 91% 65%), hsl(280 100% 70%));
+    --gradient-subtle: linear-gradient(180deg, hsl(240 10% 3.9%), hsl(240 8% 6%));
+    
+    --shadow-glow: 0 0 40px hsl(271 81% 56% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
+    --shadow-float: 0 20px 40px -12px hsl(271 81% 56% / 0.25);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 271 81% 56%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 271 91% 65%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 271 81% 56%;
+
+    /* Light mode design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(271 81% 56%), hsl(271 91% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(212 100% 50%), hsl(271 81% 56%));
+    --gradient-accent: linear-gradient(135deg, hsl(271 91% 65%), hsl(280 100% 70%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(240 4.8% 95.9%));
+    
+    --shadow-glow: 0 0 40px hsl(271 81% 56% / 0.2);
+    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.1);
+    --shadow-float: 0 20px 40px -12px hsl(271 81% 56% / 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  /* Gradient Utilities */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+
+  /* Shadow Utilities */
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+
+  /* Animation Utilities */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Glass Morphism */
+  .glass {
+    @apply backdrop-blur-xl bg-card/80 border border-border/50;
+  }
+  
+  .glass-strong {
+    @apply backdrop-blur-2xl bg-card/90 border border-border/70;
+  }
+
+  /* Hover Effects */
+  .hover-glow {
+    @apply transition-smooth hover:shadow-glow;
+  }
+  
+  .hover-float {
+    @apply transition-smooth hover:-translate-y-2 hover:shadow-float;
+  }
+  
+  .hover-scale {
+    @apply transition-smooth hover:scale-105;
+  }
+
+  /* Pulse Animation */
+  .pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Text Glow Animation */
+  .text-glow {
+    animation: text-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(271 81% 56% / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(271 81% 56% / 0.8);
+    }
+  }
+  
+  @keyframes text-glow {
+    0%, 100% {
+      text-shadow: 0 0 20px hsl(271 81% 56% / 0.5), 0 0 40px hsl(271 91% 65% / 0.3);
+    }
+    50% {
+      text-shadow: 0 0 30px hsl(271 81% 56% / 0.8), 0 0 60px hsl(271 91% 65% / 0.6);
+    }
+  }
+  
+  /* Slide Animation */
+  .slide-up {
+    animation: slide-up 0.5s ease-out forwards;
+  }
+  
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Fade In Animation */
+  .fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Bounce In Animation */
+  .bounce-in {
+    animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  }
+  
+  @keyframes bounce-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Loading Spinner */
+  .spinner {
+    @apply w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
